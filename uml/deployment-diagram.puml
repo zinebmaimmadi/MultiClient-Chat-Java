@@ -1,0 +1,9 @@
+@startuml
+node "Server Computer" as S { artifact "TCPServer.jar" as SJ; component "Java 21 + JavaFX" }
+node "Client Computer A" as A { artifact "TCPClient.jar" as CA }
+node "Client Computer B" as B { artifact "TCPClient.jar" as CB }
+node "Client Computer N" as N { artifact "TCPClient.jar" as CN }
+A --> S : TCP/IP\nserverIP:3000
+B --> S : TCP/IP\nserverIP:3000
+N --> S : TCP/IP\nserverIP:3000
+@enduml

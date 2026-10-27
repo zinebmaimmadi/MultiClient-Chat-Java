@@ -1,0 +1,12 @@
+JAR BUILD INSTRUCTIONS
+Use JDK 21+ and Maven 3.9+.
+
+TCPServer:
+  mvn clean package
+Expected: target/tcpserver-1.0.0.jar
+
+TCPClient:
+  mvn clean package
+Expected: target/tcpclient-1.0.0.jar
+
+This generation environment has Java 21 but Maven is not installed. The networking/model classes were compiled successfully with Java 21; build the JavaFX Maven artifacts on the student's machine in IntelliJ/Maven.

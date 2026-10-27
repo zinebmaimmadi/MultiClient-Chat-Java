@@ -1,0 +1,34 @@
+@startuml
+skinparam classAttributeIconSize 0
+package TCPServer {
+ class TCPServerApp
+ class ServerController
+ class ChatServer
+ class ServerConfig
+ class ClientSession
+ interface ServerEvents
+ class ServerView
+ TCPServerApp --> ServerController
+ TCPServerApp --> ServerView
+ ServerController --> ChatServer
+ ServerController ..|> ServerEvents
+ ServerController --> ServerView
+ ChatServer --> ServerConfig
+ ChatServer --> ClientSession : manages 0..*
+ ChatServer --> ServerEvents : notifies
+}
+package TCPClient {
+ class TCPClientApp
+ class ClientController
+ class ChatClient
+ interface ClientEvents
+ class ClientView
+ TCPClientApp --> ClientController
+ TCPClientApp --> ClientView
+ ClientController --> ChatClient
+ ClientController ..|> ClientEvents
+ ClientController --> ClientView
+ ChatClient --> ClientEvents : notifies
+}
+ChatClient ..> ChatServer : TCP socket
+@enduml
